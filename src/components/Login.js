@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import GraphqlClient from '../client/GraphqlClient'
 
 function Login() {
 
@@ -15,6 +16,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        GraphqlClient.login();
         console.log('clicked');
     }
 
