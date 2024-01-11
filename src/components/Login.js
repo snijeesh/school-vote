@@ -1,16 +1,35 @@
-import React from 'react';
-
-function loginClick() {
-    console.log('clicked');
-}
+import React, {useState} from 'react';
 
 function Login() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+    }
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('clicked');
+    }
+
     return (
-        <div>
-            Username: <input type="text" ></input> <br/>
-            Password: <input type="text" ></input> <br/>
-            <input type="button" value="Login" onClick={loginClick}></input>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label>Username:</label>
+                <input type="text" value={username} onChange={handleUsernameChange} />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" value={password} onChange={handlePasswordChange} />
+            </div>
+            <button type="submit">Login</button>
+        </form>
     )
 }
 
