@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {gql, useQuery} from '@apollo/client';
+//import {gql, useQuery} from '@apollo/client';
 
-const query = gql`{
-    login
-}`;
+// const query = gql`{
+//     login
+// }`;
 
 class GraphqlClient extends Component {
 
