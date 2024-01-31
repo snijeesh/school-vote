@@ -3,13 +3,12 @@ import { Navigate } from "react-router-dom";
 import useAuthContext from "./UseAuthContext";
 
 const Home = () => {
-    console.log('home');
-    const { user } = useAuthContext();
-    if (!user) {
-        console.log('no user');
+    const { userToken } = useAuthContext();
+    if (!userToken) {
+        console.log('not logged in.');
         return <Navigate replace to="/login" />;
     }
-    console.log(user);
+    console.log(userToken);
     return (
         <div>Home page..</div>
     );

@@ -7,6 +7,14 @@ import React, { Component } from 'react';
 
 class GraphqlClient {
     
+    login(userName, password) {
+        const users = [{userName: 'admin', password: 'password'}];
+        var currentUser = users.find((user) => user.userName === userName && user.password === password);
+
+        if(currentUser) {
+            return 'token';
+        }
+    }
     validateUser() {
         console.log('validateUser');
         return "testuser";
