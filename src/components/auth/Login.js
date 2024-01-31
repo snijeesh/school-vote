@@ -10,6 +10,7 @@ function Login() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState('');
     const { setUser } = useContext(AuthContext);
 
     const handleUsernameChange = (event) => {
@@ -29,6 +30,7 @@ function Login() {
             setUser(token);
             navigate("/admin/home");
         }
+        setLoginError('Invalid Username or Password');
     }
 
     return (
@@ -41,7 +43,12 @@ function Login() {
                 <label>Password:</label>
                 <input type="password" value={password} onChange={handlePasswordChange} />
             </div>
-            <button type="submit">Login</button>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+            <div className='error-label'>
+                <label>{loginError}</label>
+            </div>
         </form>
     )
 }
