@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { useNavigate } from "react-router-dom";
-import GraphqlClient from '../client/GraphqlClient'
+import GraphqlClient from '../../client/GraphqlClient'
 import AuthContext from "./AuthContext";
 
 const graphqlClient = new GraphqlClient();
@@ -24,8 +24,11 @@ function Login() {
         event.preventDefault();
         var token = graphqlClient.login(username, password);
         console.log(token);
-        setUser(token);
-        navigate("/home");
+
+        if(token) {
+            setUser(token);
+            navigate("/admin/home");
+        }
     }
 
     return (

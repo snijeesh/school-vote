@@ -1,6 +1,6 @@
 
 import { Navigate } from "react-router-dom";
-import useAuthContext from "./UseAuthContext";
+import useAuthContext from "../auth/UseAuthContext";
 
 const Home = () => {
     const { userToken } = useAuthContext();
@@ -10,7 +10,7 @@ const Home = () => {
     }
     console.log(userToken);
     return (
-        <div>Home page..</div>
+        <div>Admin home page..</div>
     );
 };
 
