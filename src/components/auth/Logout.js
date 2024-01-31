@@ -12,7 +12,7 @@ function Logout() {
     }
 
     return (
-        <div>
+        <div className='logoff-button'>
             <input type='button' value='Logout' onClick={handleOnClick} ></input>
         </div>
     )
