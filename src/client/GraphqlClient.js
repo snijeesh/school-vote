@@ -5,13 +5,11 @@ import React, { Component } from 'react';
 //     login
 // }`;
 
-class GraphqlClient extends Component {
-
-    static login(){
-        console.log('login');
-        //const { loading, error, data } = useQuery(query);
-        // if (loading) return 'Loading';
-        // if (error) return `Error ${error.message}`;
+class GraphqlClient {
+    
+    validateUser() {
+        console.log('validateUser');
+        return "testuser";
     }
 }
 

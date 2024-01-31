@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./components/AuthProvider";
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -9,10 +10,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/home" Component={Home} />
-          <Route path="/login" Component={Login} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+              <Route path="/home" Component={Home} />
+              <Route path="/login" Component={Login} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );

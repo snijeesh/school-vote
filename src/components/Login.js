@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import GraphqlClient from '../client/GraphqlClient'
 
 function Login() {
 
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -16,8 +18,8 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        GraphqlClient.login();
-        console.log('clicked');
+        //GraphqlClient.login();
+        navigate("/home");
     }
 
     return (
