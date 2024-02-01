@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import { useNavigate } from "react-router-dom";
 import GraphqlClient from '../../client/GraphqlClient'
 import AuthContext from "./AuthContext";
+import './Auth.css';
 
 const graphqlClient = new GraphqlClient();
 
@@ -34,16 +35,24 @@ function Login() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
-                <input type="text" value={username} onChange={handleUsernameChange} />
+        <form className='form' onSubmit={handleSubmit}>
+            <div className='form-row'>
+                <div className='form-label-div'>
+                    <label>Username:</label>
+                </div>
+                <div className='form-input-div'>
+                    <input type="text" value={username} onChange={handleUsernameChange} />
+                </div>
             </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={handlePasswordChange} />
+            <div className='form-row'>
+                <div className='form-label-div'>
+                    <label>Password:</label>
+                </div>
+                <div className='form-input-div'>
+                    <input type="password" value={password} onChange={handlePasswordChange} />
+                </div>
             </div>
-            <div>
+            <div className='footer'>
                 <button type="submit">Login</button>
             </div>
             <div className='error-label'>

@@ -1,0 +1,33 @@
+.form {
+    background-color: white;
+    border-radius: 5px;
+    width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.form-row {
+    padding: 10px 10px;
+}
+
+.form-label-div {
+    width: 40%;
+    display:inline-block;
+}
+
+.form-input-div {
+    width: 60%;
+    display:inline-block;
+}
+
+.footer {
+    width: 68%;
+    text-align: right;
+}
+
+.error-label {
+    color: red;
+    width: 68%;
+    text-align: right;
+  }
