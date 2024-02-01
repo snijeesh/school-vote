@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/admin/Home';
 import Login from './components/auth/Login';
+import RegistrationForm from './components/admin/RegistrationForm'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/login" Component={Login} />
-            <Route path="/admin/home" Component={Home} />  
+            <Route path="/admin/home" Component={Home} />
+            <Route path="/admin/register" Component={RegistrationForm} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

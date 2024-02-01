@@ -5,3 +5,11 @@
 .logoff-button {
     float:right;
 }
+
+.link-active {
+    visibility:visible;
+}
+
+.link-inactive {
+    visibility: hidden;
+}
