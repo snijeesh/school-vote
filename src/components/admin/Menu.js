@@ -23,9 +23,9 @@ function Menu() {
     }
 
     return (
-        <div>
-            <a id='home' onClick={ menuOnClick }>Home|</a>
-            <a id='register' onClick={ menuOnClick }>Register</a>
+        <div className='menu'>
+            <a id='home' onClick={ menuOnClick }>Home</a>|
+            <a id='register' onClick={ menuOnClick }>Register</a>|
         </div>
     );
 }

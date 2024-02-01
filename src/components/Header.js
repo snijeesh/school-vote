@@ -11,7 +11,7 @@ function Header() {
             <div className='logo-image'>
                 <img src={logo} className="App-logo" alt="logo" />
             </div>
-            <div className='logoff-wrapper'>
+            <div className='menu-wrapper'>
                 <Menu />
                 <Logout />
             </div>

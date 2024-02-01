@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from "react-router-dom";
 import useAuthContext from "../auth/UseAuthContext";
+import './Admin.css';
 
 function RegistrationForm() {
 
@@ -38,39 +39,62 @@ function RegistrationForm() {
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         console.log(firstName,lastName,email,password,confirmPassword);
         setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
     }
 
     return (
-        <form>
-            <div>
-                <div>
-                    <label>First Name:</label>
-                    <input type='text' id='firstName' value={firstName} onChange={handleInputChange}></input>
+        <div className='form'>
+            <div className='form-body'>
+                <div className='form-row'>
+                    <div className='form-label-div'>
+                        <label> First Name:</label>
+                    </div>
+                    <div className='form-input-div'>
+                        <input  type='text' id='firstName' value={firstName} onChange={handleInputChange}></input>
+                    </div>
                 </div>
-                <div>
-                    <label>Last Name:</label>
-                    <input type='text' id='lastName' value={lastName} onChange={handleInputChange}></input>
+                <div className='form-row'>
+                    <div className='form-label-div'>
+                        <label className='form-label'>Last Name:</label>
+                    </div>
+                    <div className='form-input-div'>
+                        <input className='form-input' type='text' id='lastName' value={lastName} onChange={handleInputChange}></input>
+                    </div>
                 </div>
-                <div>
-                    <label>Email:</label>
-                    <input type='email' id='email' value={email} onChange={handleInputChange}></input>
+                <div className='form-row'>
+                    <div className='form-label-div'>
+                        <label className='form-label'>Email:</label>
+                    </div>
+                    <div className='form-input-div'>
+                        <input className='form-input' type='email' id='email' value={email} onChange={handleInputChange}></input>
+                    </div>
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input type='password' id='password' value={password} onChange={handleInputChange}></input>
+                <div className='form-row'>
+                    <div className='form-label-div'>
+                        <label className='form-label'>Password:</label>
+                    </div>
+                    <div className='form-input-div'>
+                        <input className='form-input' type='password' id='password' value={password} onChange={handleInputChange}></input>
+                    </div>
                 </div>
-                <div>
-                    <label>Confirm password:</label>
-                    <input type='password' id='confirmPassword' value={confirmPassword} onChange={handleInputChange}></input>
+                <div className='form-row'>
+                    <div className='form-label-div'>
+                        <label className='form-label'>Confirm password:</label>
+                    </div>
+                    <div className='form-input-div'>
+                        <input className='form-input' type='password' id='confirmPassword' value={confirmPassword} onChange={handleInputChange}></input>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div className='footer'>
                 <button type='submit' onClick={handleSubmit}>Submit</button>
             </div>
-        </form>
+        </div>
     );
 }
 
