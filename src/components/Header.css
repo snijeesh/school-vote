@@ -20,7 +20,12 @@ a:visited {
     color: green;
 }
 
-a:hover, a:active {
+a:hover {
     color: hotpink;
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
     text-decoration: underline;
 }
