@@ -12,7 +12,7 @@ function RegistrationForm() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     
-    if (!userInfo && userInfo.role === 'admin') {
+    if (!userInfo || userInfo?.role !== 'admin') {
         console.log('not logged in.');
         return <Navigate replace to="/login" />;
     }

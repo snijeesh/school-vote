@@ -1,16 +1,16 @@
 import { Navigate } from "react-router-dom";
 import useAuthContext from "../auth/UseAuthContext";
 
-const Home = () => {
+const UserHome = () => {
     const { userInfo } = useAuthContext();
-    if (!userInfo && userInfo.role === 'admin') {
+    if (!userInfo && userInfo?.role !== 'user') {
         console.log('not logged in.');
         return <Navigate replace to="/login" />;
     }
     
     return (
-        <div>Admin home page..</div>
+        <div>User home page..</div>
     );
 };
 
-export default Home;
+export default UserHome;

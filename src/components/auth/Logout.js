@@ -8,7 +8,7 @@ function Logout() {
     const { setUserInfo } = useContext(AuthContext);
     const { userInfo } = useAuthContext();
 
-    if(!userInfo) {
+    if(!userInfo || !userInfo?.token) {
         return (
             <div></div>
         )

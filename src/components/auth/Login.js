@@ -25,11 +25,16 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         var userInfo = graphqlClient.login(username, password);
-        console.log(userInfo);
 
         if(userInfo.token) {
             setUserInfo(userInfo);
-            navigate("/admin/home");
+
+            if(userInfo.role === 'admin') {
+                navigate("/admin/home");
+            }
+            if(userInfo.role === 'user') {
+                navigate("/user/home");
+            }
         }
         setLoginError('Invalid Username or Password');
     }

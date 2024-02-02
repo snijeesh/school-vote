@@ -8,7 +8,10 @@ import React, { Component } from 'react';
 class GraphqlClient {
     
     login(userName, password) {
-        const users = [{userName: 'admin', password: 'password', name: 'Admin', role: 'admin', token: 'testtoken'}];
+        const users = [
+            {userName: 'admin', password: 'password', name: 'Admin', role: 'admin', token: 'testtoken'},
+            {userName: 'user', password: 'password', name: 'User', role: 'user', token: 'testtoken'}
+        ];
         var currentUser = users.find((user) => user.userName === userName && user.password === password);
 
         if(currentUser) {
