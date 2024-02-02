@@ -13,9 +13,9 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-            <Route path="/login" Component={Login} />
-            <Route path="/admin/home" Component={Home} />
-            <Route path="/admin/register" Component={RegistrationForm} />
+            <Route path="/login" exact Component={Login} />
+            <Route path="/admin/home" exact Component={Home} />
+            <Route path="/admin/register" exact Component={RegistrationForm} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
