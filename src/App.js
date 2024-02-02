@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/admin/Home';
 import Login from './components/auth/Login';
-import RegistrationForm from './components/admin/RegistrationForm'
+import RegistrationForm from './components/admin/RegistrationForm';
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/login" exact Component={Login} />
             <Route path="/admin/home" exact Component={Home} />
             <Route path="/admin/register" exact Component={RegistrationForm} />
+            <Route path="*" Component={NotFound}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>
