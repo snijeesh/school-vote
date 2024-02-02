@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useAuthContext from "../auth/UseAuthContext";
 
 function Menu() {
@@ -13,8 +13,8 @@ function Menu() {
 
     return (
         <div className='menu'>
-            <Link to="/admin/home">Home</Link>
-            <Link to="/admin/register">Register</Link>
+            <NavLink to="/admin/home">Home</NavLink>
+            <NavLink to="/admin/register">Register</NavLink>
         </div>
     );
 }

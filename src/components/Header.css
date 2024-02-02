@@ -14,18 +14,15 @@
 
 a {
     padding: 14px 25px;
-}
-
-a:visited {
     color: green;
 }
+
 
 a:hover {
     color: hotpink;
     text-decoration: underline;
 }
 
-a:active {
+.active {
     color: red;
-    text-decoration: underline;
 }
