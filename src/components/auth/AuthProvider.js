@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AuthContext from './AuthContext';
 
 export const AuthProvider = ({ children }) => {
-    const [userToken, setUser] = useState(null);
+    const [userInfo, setUserInfo] = useState(null);
     
     return (
-      <AuthContext.Provider value={{ userToken, setUser }}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{ userInfo, setUserInfo }}>{children}</AuthContext.Provider>
     );
   };

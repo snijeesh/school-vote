@@ -4,8 +4,8 @@ import useAuthContext from "../auth/UseAuthContext";
 
 function Menu() {
 
-    const { userToken } = useAuthContext();
-    if(!userToken) {
+    const { userInfo } = useAuthContext();
+    if(!userInfo && userInfo.role === 'admin') {
         return (
             <div></div>
         )

@@ -5,17 +5,17 @@ import useAuthContext from "../auth/UseAuthContext";
 
 function Logout() {
     const navigate = useNavigate();
-    const { setUser } = useContext(AuthContext);
-    const { userToken } = useAuthContext();
+    const { setUserInfo } = useContext(AuthContext);
+    const { userInfo } = useAuthContext();
 
-    if(!userToken) {
+    if(!userInfo) {
         return (
             <div></div>
         )
     }
-    
+
     const handleOnClick = () => {
-        setUser('');
+        setUserInfo({});
         navigate("/login");
     }
 

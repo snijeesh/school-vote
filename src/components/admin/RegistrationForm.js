@@ -5,14 +5,14 @@ import './Admin.css';
 
 function RegistrationForm() {
 
-    const { userToken } = useAuthContext();
+    const { userInfo } = useAuthContext();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     
-    if (!userToken) {
+    if (!userInfo && userInfo.role === 'admin') {
         console.log('not logged in.');
         return <Navigate replace to="/login" />;
     }

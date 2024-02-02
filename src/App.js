@@ -14,6 +14,7 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
+            <Route path="/" exact Component={Login} />
             <Route path="/login" exact Component={Login} />
             <Route path="/admin/home" exact Component={Home} />
             <Route path="/admin/register" exact Component={RegistrationForm} />

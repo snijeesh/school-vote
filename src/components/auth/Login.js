@@ -12,7 +12,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState('');
-    const { setUser } = useContext(AuthContext);
+    const { setUserInfo } = useContext(AuthContext);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -24,11 +24,11 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        var token = graphqlClient.login(username, password);
-        console.log(token);
+        var userInfo = graphqlClient.login(username, password);
+        console.log(userInfo);
 
-        if(token) {
-            setUser(token);
+        if(userInfo.token) {
+            setUserInfo(userInfo);
             navigate("/admin/home");
         }
         setLoginError('Invalid Username or Password');
