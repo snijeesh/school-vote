@@ -29,3 +29,9 @@
     width: 69%;
     text-align: right;
 }
+
+.page-header {
+    padding: 10px 10px;
+    text-align: left;
+    border-bottom: 1px solid #aaa;
+}
