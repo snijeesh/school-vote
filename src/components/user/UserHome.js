@@ -4,13 +4,16 @@ import useAuthContext from "../auth/UseAuthContext";
 
 const UserHome = () => {
     const { userInfo } = useAuthContext();
-    //const [activateVoting, setActivateVoting] = useState({});
+    const [activateVoting, setActivateVoting] = useState({});
 
     useEffect(() => {
-        console.log("use effect running..");
-        // setActivateVoting({
-        //     isActivateVoting: false
-        // }, {});
+        console.log("use effect running.." + activateVoting?.isActivateVoting);
+
+        if(!activateVoting?.isActivateVoting) {
+            setActivateVoting({
+                isActivateVoting: true
+            });
+        }
     });
 
     if (!userInfo && userInfo?.role !== 'user') {
@@ -18,19 +21,25 @@ const UserHome = () => {
         return <Navigate replace to="/login" />;
     }
     
-
-    
-    
     const handleOnClick = () => {
         
         console.log('voted');
+        setActivateVoting({
+            isActivateVoting: false
+        });
     }
 
     return (
         <div>
             <div className="page-header">User home</div>
             <div>
-                <button onClick={handleOnClick} >Start Vote</button>
+                {
+                    activateVoting?.isActivateVoting ?
+                    <button onClick={handleOnClick} >Start Vote</button>
+                    :
+                    <></>
+                }
+                
             </div>        
         </div>
     );
