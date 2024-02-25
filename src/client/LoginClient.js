@@ -5,7 +5,7 @@ class LoginClient {
 
         var currentUser = data.login;
         if(currentUser) {
-            return {name: currentUser.name, role: currentUser.role, token: currentUser.token, home: currentUser.home};
+            return {name: currentUser.firstName + ' ' + currentUser.lastName, role: currentUser.role, token: currentUser.token, home: currentUser.home};
         }
     
         return {};
@@ -15,7 +15,8 @@ class LoginClient {
         const LOGIN_QUERY = `
             query LoginQuery ($userName: String!, $password: String!) {
                 login(userName: $userName, password: $password) {
-                    name
+                    firstName
+                    lastName
                     role
                     token
                     home
