@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
 import { useNavigate } from "react-router-dom";
-import GraphqlClient from '../../client/GraphqlClient'
+import LoginClient from '../../client/LoginClient'
 import AuthContext from "./AuthContext";
 import './Auth.css';
 
-const graphqlClient = new GraphqlClient();
+const loginClient = new LoginClient();
 
 function Login() {
 
@@ -22,19 +22,13 @@ function Login() {
         setPassword(event.target.value);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        var userInfo = graphqlClient.login(username, password);
+        var userInfo = await loginClient.login(username, password);
 
         if(userInfo.token) {
             setUserInfo(userInfo);
-
-            if(userInfo.role === 'admin') {
-                navigate("/admin/home");
-            }
-            if(userInfo.role === 'user') {
-                navigate("/user/home");
-            }
+            navigate(userInfo.home);
         }
         setLoginError('Invalid Username or Password');
     }
