@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from "react-router-dom";
 import useAuthContext from "../auth/UseAuthContext";
+import LoginClient from '../../client/LoginClient';
 import './Admin.css';
 
 function RegistrationForm() {
@@ -11,6 +12,9 @@ function RegistrationForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [registrationError, setRegistrationError] = useState('');
+
+    const loginClient = new LoginClient();
     
     if (!userInfo || userInfo?.role !== 'admin') {
         console.log('not logged in.');
@@ -38,8 +42,20 @@ function RegistrationForm() {
         }
     }
 
-    const handleSubmit = (event) => {
-        console.log(firstName,lastName,email,password,confirmPassword);
+    const handleSubmit = async (event) => {
+        
+        const userInput = { firstName, lastName, email, password}
+        var result = await loginClient.registerUser(userInput);
+
+        if(result.data.register === true) {
+            await clearForm();
+            setRegistrationError('');
+        } else {
+            setRegistrationError('Registration failed. Please retry.');
+        }
+    }
+
+    const clearForm = async () => {
         setFirstName('');
         setLastName('');
         setEmail('');
@@ -93,6 +109,9 @@ function RegistrationForm() {
             </div>
             <div className='footer'>
                 <button type='submit' onClick={handleSubmit}>Submit</button>
+            </div>
+            <div className='error-label'>
+                <label>{registrationError}</label>
             </div>
         </div>
     );

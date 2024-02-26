@@ -45,6 +45,42 @@ class LoginClient {
 
         return data;
     }
+
+    async registerUser(user) {
+        
+        const REGISTER_QUERY = `
+        mutation RegisterMutation ($userInput: UserInput!) {
+            register(userInput: $userInput)
+        }
+        `;
+        let data = await fetch('http://localhost:8080/graphql', {
+            method: 'post',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: REGISTER_QUERY,
+                variables: { userInput: { 
+                        firstName: user.firstName, 
+                        lastName: user.lastName, 
+                        email: user.email,
+                        password: user.password 
+                    }
+                }
+            }),
+        })
+        .then(response => {
+            return response.json().then(data => {
+                return data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        });
+
+        return data;
+    }
 }
 
 export default LoginClient;
